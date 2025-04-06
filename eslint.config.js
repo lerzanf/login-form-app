@@ -2,6 +2,7 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import cypressPlugin from 'eslint-plugin-cypress'
 
 export default [
   { ignores: ['dist'] },
@@ -9,7 +10,11 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -28,6 +33,30 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ['cypress/e2e/**/*.{js,jsx}'],
+    plugins: {
+      cypress: cypressPlugin,
+    },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.mocha,
+        Cypress: true,
+        cy: true,
+        describe: true,
+        it: true,
+        before: true,
+        beforeEach: true,
+        after: true,
+        afterEach: true,
+      },
+    },
+    rules: {
+      ...cypressPlugin.configs.recommended.rules,
     },
   },
 ]
