@@ -1,12 +1,20 @@
-# React + Vite
+# 🧾 Login Form App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple login form built with React. It includes form validation, user credential check via a mock API, and redirection upon successful login. The app uses **Reactstrap** for styling and **Cypress** for end-to-end testing.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Form validation (email and password rules)
+- Terms of service checkbox
+- Redirection to `/success` after successful login
+- Error messages for invalid inputs
+- E2E testing with **Cypress**
 
-## Expanding the ESLint configuration
+## 🛠 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Reactstrap
+- Axios
+- React Router DOM
+- Cypress (for testing)
+- MockAPI (for fake user data)
